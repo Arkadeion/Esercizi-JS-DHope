@@ -4,17 +4,21 @@
 // developer => 1500
 // default => 1000
 function calculateSalary(role) {
-  if (role === 'other') {
-    return '1000€';
-  } else if (role === 'developer') {
-    return '1500€';
-  } else if (role === 'cto') {
-    return '1800€';
-  } else if (role === 'manager') {
-    return '1800€';
-  } else if (role === 'ceo') {
+  if (role === 'ceo') {
     return '2200€';
   }
+  if (role === 'manager') {
+    return '1800€';
+  }
+  if (role === 'cto') {
+    return '1800€';
+  }
+  if (role === 'developer') {
+    return '1500€';
+  } else {
+    return '1000€';
+  }
+
 }
 
 const ceoSalary = calculateSalary('ceo');
