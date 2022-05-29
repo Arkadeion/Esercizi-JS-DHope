@@ -5,16 +5,16 @@
 // default => 1000
 function calculateSalary(role) {
   switch (role) {
-    case 'other' :
-      return '1000€';
-    case 'developer' :
-      return '1500€';
-    case 'cto' :
-      return '1800€';
-    case 'manager' :
-      return '1800€';
-    case 'ceo' :
+    case 'ceo':
       return '2200€';
+    case 'manager':
+      return '1800€';
+    case 'cto':
+      return '1800€';
+    case 'developer':
+      return '1500€';
+    default:
+      return '1000€';
   }
 }
 
