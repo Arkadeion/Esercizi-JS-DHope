@@ -1,13 +1,7 @@
 function memoize(fn) {
   let cache = {
-    cache1: 120,
+   
   };
-  /* Object.values(cache).includes(`${}`) */
-  return function (x) {
-    if (cache[x]) {
-      return `Calculating result for ${factorial}`;
-    }
-  }
   
 }
 
