@@ -1,12 +1,25 @@
 const person = {
+
+  get aFirstName() {
+    return this._firstName;
+  },
+
+  get aLastName() {
+    return this._lastName;
+  },
+
   set firstName(name) {
     this._firstName = name;
   },
+
   set lastName(surname) {
     this._lastName = surname;
   },
+
   _firstName: "",
+
   _lastName: "",
+
   fullName()  {
     return `${this._firstName} ${this._lastName}`
   }

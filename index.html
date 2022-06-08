@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const isValidArgs = (type, placeholder, required) => {
+            let errors = [];
+            if (typeof type !== "string" || typeof placeholder !== "string" || typeof required !== "boolean") {
+                if (typeof type !== "string") {
+                    let typeError = new Error(`${type} non è una stringa.`);
+                    errors.push(typeError);
+                }
+                if (typeof placeholder !== "string") {
+                    let placeholderError = new Error(`${placeholder} non è una stringa.`);
+                    errors.push(placeholderError);
+                }
+                if (typeof required !== "boolean") {
+                    let requiredError = new Error(`${required} non è un booleano.`);
+                    errors.push(requiredError);
+                }
+                throw errors;
+            }
+            
+            return true;
+        }
+
+        const createInput = (type, placeholder, required = true) => {
+            if (isValidArgs(type, placeholder, required)) {
+                const $input = document.createElement("input")
+                $input.type = type;
+                $input.placeholder = placeholder;
+                $input.required = required;
+                return $input;
+            } else {
+                console.log(errors);
+                throw new Error(errors);
+            }
+        }
+        isValidArgs(42, false, 6);
+    </script>
+
+
+
+</body>
+
+</html>
