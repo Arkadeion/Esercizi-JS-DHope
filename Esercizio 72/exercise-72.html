@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container">
+    <form>
+      <div>
+        <label>First Name:</label>
+        <input title="a" type="text" class="form-input" id="firstName" value="Mario" />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input title="b" type="text" class="form-input" id="lastName" value="Rossi" />
+      </div>
+      <div>
+        <label>Age:</label>
+        <input title="c" type="number" class="form-input" id="age" value="25" />
+      </div>
+    </form>
+  </div>
+
+  <script>
+
+    const person = {};
+    
+    for (i = 0; i < document.getElementsByTagName("label").length; i++) {
+
+      let key = document.getElementsByTagName("label")[i].innerHTML;
+      let value = document.getElementsByClassName("form-input")[i].value;
+      person[`${key}`] = `${value}`;
+
+    }
+
+    console.log(person);
+
+    const stringPerson = JSON.stringify(person);
+
+    console.log(stringPerson);
+
+    const form = document.getElementsByTagName("form")[0];
+
+    form.setAttribute(`data-person`, `${stringPerson}`);
+
+
+  </script>
+</body>
+</html>

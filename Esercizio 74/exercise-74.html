@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container">
+    <h2>Person's Form</h2>
+    <form id="person-form">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+
+    const personForm = document.getElementById("person-form");
+
+    const submitButton = document.getElementsByTagName("button")[0];
+
+    function initForm() {
+
+      const createFirstNameLabel = document.createElement("label");
+      createFirstNameLabel.innerHTML = "First Name: ";
+
+      personForm.insertBefore(createFirstNameLabel, submitButton);
+
+      const createFirstNameField = document.createElement("input");
+      createFirstNameField.setAttribute('type', "text");
+      createFirstNameField.setAttribute('name', "firstName");
+
+      personForm.insertBefore(createFirstNameField, submitButton);
+
+      const createLastNameLabel = document.createElement("label");
+      createLastNameLabel.innerHTML = "Last Name: ";
+
+      personForm.insertBefore(createLastNameLabel, submitButton);
+
+      const createLastNameField = document.createElement("input");
+      createLastNameField.setAttribute('type', "text");
+      createLastNameField.setAttribute('name', "lastName");
+
+      personForm.insertBefore(createLastNameField, submitButton);
+
+      const createAgeLabel = document.createElement("label");
+      createAgeLabel.innerHTML = "Age: ";
+
+      personForm.insertBefore(createAgeLabel, submitButton);
+
+      const createAgeField = document.createElement("input");
+      createAgeField.setAttribute('type', "number");
+      createAgeField.setAttribute('name', "age");
+
+      personForm.insertBefore(createAgeField, submitButton);
+    }
+
+    initForm();
+
+    personForm.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      const formData = new FormData(personForm);
+
+      const person = {};
+
+      formData.forEach((element, index) => {
+        person[index] = element;
+      });
+
+      console.log(person);
+
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+<!-- const createTableRow = document.createElement("tr");
+
+tableBody.appendChild(createTableRow);
+
+for (i = 1; i < 4; i++) {
+
+  const createInput = document.createElement("input");
+  createInput.setAttribute("type", "text");
+
+  if (i == 1) {
+    createInput.setAttribute("placeholder", "firstName");
+  } else if (i == 2) {
+    createInput.setAttribute("placeholder", "lastName");
+  } else {
+    createInput.setAttribute("placeholder", "age");
+  }
+
+  createTableRow.appendChild(createInput); -->

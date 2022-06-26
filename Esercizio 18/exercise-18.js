@@ -1,8 +1,19 @@
 function memoize(fn) {
-  let cache = {
-   
-  };
-  
+  let cache = {};
+  return (...args) => {
+    let n = args[0];
+    if (n in cache) {
+      console.log('Fetching from cache for', n);
+      return cache[n];
+    }
+    else {
+      console.log('Calculating result for', n);
+      let result = fn(n);
+      cache[n] = result;
+      console.log(cache);
+      return result;
+    }
+  }
 }
 
 function factorial(x) {

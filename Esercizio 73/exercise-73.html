@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container">
+    <h2>Person's List</h2>
+    <table id="person-table">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+    <button id="add-row">Add row</button>
+  </div>
+
+  <script>
+
+    const tableBody = document.getElementsByTagName("tbody")[0];
+    const rowButton = document.getElementById("add-row");
+
+    rowButton.addEventListener("click", (event) => {
+
+      const createTableRow = document.createElement("tr");
+      
+      tableBody.appendChild(createTableRow);
+
+      for (i = 1; i < 4; i++){
+
+        const createInput = document.createElement("input");
+        createInput.setAttribute("type", "text");
+
+        if (i == 1) {
+          createInput.setAttribute("placeholder", "firstName");
+        } else if (i == 2) {
+          createInput.setAttribute("placeholder", "lastName");
+        } else {
+          createInput.setAttribute("placeholder", "age");
+        }
+
+        createTableRow.appendChild(createInput);
+      }
+    });
+  </script>
+</body>
+
+</html>
