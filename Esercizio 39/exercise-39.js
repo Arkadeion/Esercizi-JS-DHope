@@ -1,31 +1,34 @@
 class Square {
-  constructor(side) {
+  constructor(side, shapeName = "square") {
     this.side = side;
+    this.shapeName = shapeName;
   }
 }
 
 class Rectangle {
-  constructor(width, height) {
+  constructor(width, height, shapeName = "rectangle") {
     this.width = width;
     this.height = height;
+    this.shapeName = shapeName;
   }
 }
 
 class Circle {
-  constructor(radius) {
+  constructor(radius, shapeName = "circle") {
     this.radius = radius;
+    this.shapeName = shapeName;
   }
 }
 
 class AreaCalculator {
 
   static calculate(shape) {
-    switch (shape) {
-      case square:
+    switch (shape.shapeName) {
+      case ("square"):
         return Number(shape.side * shape.side.toFixed(2)); // .toFixed(2) arrotonda il risultato a due decimali, ma trasforma il valore in stringa. 
-      case (rectangle): // La classe Number converte nuovamente il risultato in un numero.
+      case ("rectangle"): // La classe Number converte nuovamente il risultato in un numero.
         return Number((shape.width * shape.height).toFixed(2));
-      case (circle):
+      case ("circle"):
         return Number((Math.PI * shape.radius).toFixed(2)); 
       default:
         return 'Incorrect input. This is not a compatible shape.'

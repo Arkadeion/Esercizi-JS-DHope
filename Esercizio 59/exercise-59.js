@@ -33,6 +33,10 @@ function fetchPersonById(id) {
   });
 }
 
-fetchPersonById(2).then((person) => {
-  console.log(JSON.parse(person));
+fetchPersonById(2)
+.then((person) => {
+  return JSON.parse(person);
+})
+.then((data) => {
+  console.log(data);
 })

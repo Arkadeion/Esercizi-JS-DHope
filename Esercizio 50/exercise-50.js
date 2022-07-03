@@ -11,7 +11,8 @@ class Person {
   }
 
   static fromJson(input) {
-    return JSON.parse(input);
+    return new Person(...Object.values(JSON.parse(input)));
+
   }
   
 }

@@ -6,5 +6,6 @@ const person = {
 
 // Print values of person using Object.keys
 
-let values = Object.keys(person).map((key) => [key, person[key]]);
-console.log(values);
+for (let keys of Object.keys(person)) {
+  console.log(`${keys}: ${person[keys]}`);
+}
